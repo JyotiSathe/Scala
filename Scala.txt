@@ -1,0 +1,408 @@
+Can the following pseudo function be considered a pure function ? function getMeTimeAdded(arg Integer) = currentTime + Integer
+No
+
+Which of the following are the key concepts of Functional Programming a. Immutability b. Pure functions c. Inheritance d. Referential Transparency .
+a,b,d
+
+Scala is a pure functional programming language (True/False)
+False
+
+You can modify an immutable object once created (Yes/No)
+No
+
+Functional programming language cannot be an object oriented language too (True/False)
+False
+
+What is the preferred qualifier for defining a variable in Scala.
+val
+
+What is the default class List is imported from ?
+scala.collection.immutable
+
+For the given statement,
+
+val s = List(1,2,3)
+
+What would be the type of s?
+List[Int]
+
+Is this a valid expression val f: Int = (x: Int) => x + 1
+No
+
+What would be the output of following snippet
+
+val s = List(1,2,3,4)
+val t = List(5,6,7,8)
+val n = s ++ t
+println(n)
+
+List(1,2,3,4,5,6,7,8)
+
+In functional programming language functions can be
+passed as an argument
+
+Which of the following type allows only single instance to exist in global scope
+object
+
+Scala is JVM language
+True
+
+Scala can be run only on JVM.
+True
+
+Which all frameworks are developed using Scala
+Spark
+
+Case classes can not contain member functions
+False
+
+toString is a default method available for new class definition that can be override
+True
+
+Consider the following code snippet
+
+def prnt = {print("scala"); 1}
+def fun(a:Int,b: => Int) = print(a)
+What will be the output for function call fun(prnt,5)?
+5scala1 -wrong
+
+AnyVal is best type of all primitive data types
+True
+
+Which of the following programming paradigm does Scala support?
+All
+
+What would be the output of following code snippet.
+
+val l = List(1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 5, 5, 8)
+println(l.take(3))
+List(1,1,1)
+
+Scala has immutable collections
+True
+
+Following build tools can be used to build Scala projects
+All
+
+
+Given the following snippet, what would be the output
+
+val l = List(1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 5, 5, 8)
+println(l.drop(10)
+
+List(3,5,5,8)
+
+Consider the following code snippet
+
+ {val x = 0 
+ x=5} 
+
+the output of the above expression would be
+error
+
+Functions are first class objects in function programming
+True
+
+Object keyword is used to define a singleton class in Scala
+True
+
+Which one is the correct expression?
+val f = (x: Int) => x + 1
+
+Scalability is an important trait of a functional programming language?
+True
+
+Mentioning function return type is optional in Scala
+True
+
+Which of the following feature in Java resembles trait in Scala
+interface
+
+Consider the following code snippet (a: Int) => a*a. Above code snippet is an example of
+anonymous function
+
+Mathematical functions are best implemented in?
+functional programming language
+
+Which of the following provides way to multiple inheritances in Scala
+trait
+
+What would be the out of the following code
+
+val s = 20
+println(s"value of s is $s")
+
+value of s is 20
+
+
+
+
+
+
+OOP is scala
+
+class Rectangle{
+ var length:Int=0;
+ var breadth:Int=0;
+ def this(value1:Int,value2:Int)={
+this();
+this.length=value1;
+this.breadth=value2;
+}
+def area()={
+var a:Int=length*breadth;
+println(a);
+}
+def perimeter()={
+var p:Int=2*(length+breadth)
+println(p);
+}
+ }
+
+object RectangleDemo extends App{
+ val input1 :Int = args(0).toInt
+ val input2 :Int = args(1).toInt
+ //write your code here
+var obj:Rectangle=new Rectangle(input1,input2);
+obj.area();
+obj.perimeter();
+}
+
+Case Classes in Scala
+abstract class Expression
+case class Var(name: String) extends Expression
+case class Number(num: Double) extends Expression
+case class UnOp(operator: String, arg: Expression) extends Expression
+case class BinOp(operator: String, left: Expression, right: Expression) extends Expression
+object CaseClassMatching extends App {
+   val op = BinOp("+", Number(1), Number(4))
+    describe(op)
+  def describe(o:Any)= {
+o match{
+case i:Number=>println("It is a number");
+case v:Var=>println("It is a string expression");
+case u:UnOp=>println("It is a unary operation");
+case b:BinOp=>println("It is a binary operation");
+case _=>println("Invalid Expression");
+}
+     }
+}
+
+flatMap
+object flatMapUsage{
+ def main(args :Array[String]){
+  val input :Int = args(0).toInt
+  val numberList = (1 to input).toList
+  def listGenerator(arg: Int):List[Int]=List.range(1,arg+1)
+  val resultList = numberList.flatMap(listGenerator)
+  println(resultList)
+  println(resultList.length)
+ }
+}
+
+Traits
+trait ArithmeticOperations{
+var x:Int
+var y:Int
+def add :Int
+def subract:Int
+def multiply:Int
+def divide:Int
+}
+class Variables(var a:Int,var b:Int) extends ArithmeticOperations{
+var x:Int=a
+var y:Int=b
+def add():Int={
+return x+y
+}
+def subract():Int={
+return x-y
+}
+def multiply():Int={
+return x*y
+}
+def divide():Int={
+return x/y
+}
+}
+object TraitExample extends App{
+ val input1 = args(0).toInt
+ val input2 = args(1).toInt
+ var variable = new Variables(input1, input2)
+ println(variable.add())
+ println(variable.subract())
+ println(variable.multiply())
+ println(variable.divide())
+}
+
+Functions
+object BasicFunc{
+def main(args : Array[String]){
+  val a : Int = args(0).toInt
+  val b : Int = args(1).toInt
+  var sum = add(a,b)
+  println(sum)
+ }
+ def add (x:Int,y:Int):Int={
+return x+y
+ }
+}
+
+object RecursionFunc{
+ def main(args : Array[String]){
+  val i : Int = args(0).toInt
+  var fact : Int = factorial(i)
+  println(fact)
+ }
+ def factorial(n:Int):Int={
+if(n==0)
+return 1
+else
+return n*factorial(n-1)
+}
+}
+
+Lists
+object ListFunctions{
+ def main(args :Array[String]){
+  val sampleList :List[Int] = List(1,2,3,4,5,6)
+  println(sampleList.head)
+  println(sampleList.tail)
+  println(sampleList.length)
+  println(sampleList.reverse)
+ }
+}
+
+object ListFunctions2{
+ def main(args :Array[String]){
+  val input :Int = args(0).toInt
+  val uniformList = List.fill(input)("Scala")
+  val tabulateList = List.tabulate(input)(input=>input+1)
+  println(uniformList,tabulateList)
+ }
+}
+
+Filter and Map
+object ListFilter{
+ def main(args :Array[String]){
+  val input = args(0).toInt
+  val numberList = List.range(0,input)
+  val evenList = numberList.filter(_%2==0)
+  println(evenList)
+ }
+}
+
+object mapFunction{
+ def main(args :Array[String]){
+  val input = args(0).toInt
+  val numberList = List.range(0,input)
+  def incrementer(arg:Int):Int=arg+5
+  val incrementList = numberList.map(incrementer)
+  println(incrementList)
+ }
+}
+
+More on Lists-1
+object ListHigherOrderFunction{
+ def main(args :Array[String]){
+  val input = args(0).toInt
+  val intList :List[Int]=List.range(1,input+1)
+println(intList)
+  def factorial(n:Int):Int={
+if(n==0)
+return 1
+else
+return n*factorial(n-1)
+}
+  def myHigherOrderFunction (argFin:Int=>Int,nList:List[Int])={
+for(elem<-nList)
+{
+println(argFin(elem))
+}
+}
+
+  myHigherOrderFunction(factorial, intList)
+}
+}
+
+More on Lists-2
+object ListMapHigherOrder{
+ def main(args :Array[String]){
+  val intList :List[Int] = args.map(_.toInt).toList
+  def isPerfectNumber(arg:Int):String={
+var i = 2
+var sum=1
+while (i * i <= arg){
+ if( arg % i == 0){
+ sum = sum + i + arg/i
+}
+i = i+1
+}
+if(sum==arg && arg!=1)
+return "true"
+else
+return "false"
+}
+
+  def myHigherOrderFunction(argFn:Int=>String,nList:List[Int]):List[String]= {
+val newList=nList.map(argFn)
+return newList
+  }
+  println(myHigherOrderFunction(isPerfectNumber, intList))
+}
+}
+
+Function Literals and Higher Order Functions
+
+object FuncLiterals{
+ def main(args : Array[String]){
+  val a : Int = args(0).toInt
+  val b : Int = args(1).toInt
+  var multiply = (x:Int,y:Int)=>x*y
+  println(multiply(a,b))
+ }
+}
+
+object HigherOrderFunction{
+ def main(args :Array[String]){
+  val input : Int = args(0).toInt
+  println(myHigherOrderFunction(addOne, input))
+ def addOne(arg: Int): Int = { arg * 9 }
+    def myHigherOrderFunction(argFn:Int=>Int,n:Int):Int={
+return argFn(n)
+ }
+}
+}
+
+Pattern matching in scala
+
+object PatternMatching{
+ def main(args :Array[String]){
+  val input :Int = args(0).toInt
+input match{
+case input if input<=0 =>println("NegativeZero is input")
+case input if input%2==0 =>println("Even number is given")
+case input if input%2==1 => println("Odd number is given")
+}
+}
+}
+
+object PatternMatchingType{
+ def main(args :Array[String]){
+  val input1 = args(0).toInt
+  val initial = "12345"
+  var change : Any = 0
+  //write your code here
+input1 match{
+case i if i==1=>change=initial.toInt
+case i if i==2=>change=initial.toDouble
+case _ => change=initial.toString
+}
+change match{
+case i:Int => println("Integer is given")
+case i:Double => println("Double is given")
+case i:String => println("String is given")
+}
+  println(change.getClass)
+}
+}
